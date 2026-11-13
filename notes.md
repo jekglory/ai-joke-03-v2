@@ -66,14 +66,21 @@ top-ranked jokes' length band.
 - v2: EDIT 1 — makedirs /output if missing + assert 1-280 chars.
 - v3: EDIT 2 — read back and assert written bytes match, before exit.
 
-## Local verification (no Docker on this VM)
+## Local verification (no Docker on this VM) — PASSED 2026-11-13 ~22:32 WIB
 Run exactly as grader, minus Docker:
   PYTHONHASHSEED=0 timeout 60 python3 -P -s main.py   (with /output present, chmod 777)
-(to be filled after running)
+Run 1: exit 0. Run 2: exit 0. sha256 of /output/entry.txt identical both
+runs: d51059434d28a75ee642ced374fd6e46b1e9d1381a4b42cf2a9d144c494657f1.
+Joke = 113 chars (limit 1-280), not whitespace-only, no trailing newline.
+py_compile OK. Local python is 3.12; grader runs 3.13 — code uses only
+basic stdlib (os, str.encode), no version-specific features.
+No packing used: main.py is readable source, authored via WRITE + 2 EDITs.
+No API key used or read at any point in this build.
 
 ## Commit
-Local repo: ~/workspace/makefun/ai-joke-03-v2/ (branch master, single commit).
-Commit SHA: (to be filled).
-Files: main.py, LICENSE, .makefun/owner.json.
+Local repo: ~/workspace/makefun/ai-joke-03-v2/ (branch master).
+Commit SHA: ef7d1595cfabe6d982b85ca3483b620abe13a428 — "ai-joke-03 v2: agent
+bills the human for tokens" (+ a docs commit recording these results).
+Files: main.py 1,186 B, LICENSE 1,095 B, .makefun/owner.json 58 B.
 NOT pushed; GitHub repo NOT created — parent handles re-auth + push + submit.
 No API key used or read at any point in this build.
